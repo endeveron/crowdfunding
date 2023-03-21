@@ -1,0 +1,38 @@
+@use 'styles/breakpoints';
+@use 'styles/mixins';
+
+.create-campaign-form {
+  &__fields-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &--loading {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .form-field {
+      width: 100%;
+
+      @include breakpoints.md {
+        width: calc(50% - 0.5rem);
+        &:nth-child(5),
+        &:nth-child(6) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__actions-wrapper {
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  &__loading {
+    @include mixins.flex-col-center;
+    height: 3rem;
+  }
+}

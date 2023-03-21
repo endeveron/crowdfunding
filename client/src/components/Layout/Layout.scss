@@ -1,0 +1,44 @@
+@use 'styles/mixins';
+@use 'styles/breakpoints';
+
+$container-min-width: 20rem; // 320px
+$container-max-width: 87.5rem; // 1400px
+
+.layout {
+  @include mixins.flex();
+  margin: 0 auto;
+  max-width: $container-max-width;
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .gap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-gap);
+  }
+
+  .sidebar-wrapper {
+    position: sticky;
+    top: 0;
+  }
+
+  .view {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    animation: fade 0.25s ease-out;
+
+    &__title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding-top: 2.125rem;
+      padding-bottom: 2.125rem;
+    }
+  }
+
+  .row {
+    display: flex;
+  }
+}

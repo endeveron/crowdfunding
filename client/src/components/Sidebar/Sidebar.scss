@@ -1,0 +1,23 @@
+@use 'styles/mixins';
+
+.sidebar {
+  @include mixins.flex-col-distributed();
+
+  height: 100vh;
+  padding: 1.5rem 0 1.5rem 0.5rem;
+  border-radius: var(--s-border-radius);
+
+  &__content {
+    @include mixins.flex-col-distributed();
+
+    flex: 1;
+    margin-top: 1rem;
+    padding: var(--s-gap-s);
+    border-radius: var(--s-border-radius-m);
+    background-color: var(--c-bg-paper);
+
+    &__main {
+      @include mixins.flex-col-distributed();
+    }
+  }
+}

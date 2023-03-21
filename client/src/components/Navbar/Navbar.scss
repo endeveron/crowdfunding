@@ -1,0 +1,35 @@
+@use 'styles/breakpoints';
+
+.navbar {
+  position: sticky;
+  top: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background: var(--c-bg);
+  z-index: 1;
+
+  + .view__title,
+  + div .view__title {
+    padding-top: 0.75rem;
+    padding-left: 0.125rem;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 3rem;
+    gap: 1rem;
+  }
+
+  &__search {
+    width: 100%;
+    min-width: 12rem;
+    max-width: 20rem;
+  }
+
+  &__input {
+    width: 100%;
+    background-color: transparent;
+  }
+}

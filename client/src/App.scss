@@ -1,0 +1,147 @@
+@use 'styles';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-size: 16px;
+  color: var(--c-text-main);
+  background-color: var(--c-bg);
+
+  cursor: default;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+::placeholder {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.25rem;
+  letter-spacing: 0.03125rem;
+}
+
+input,
+textarea,
+button {
+  outline: 0;
+  outline-style: none;
+  -moz-outline-style: none;
+}
+
+::-moz-selection {
+  color: var(--c-text-inverse);
+  background: var(--c-bg-inverse);
+}
+
+::selection {
+  color: var(--c-text-inverse);
+  background: var(--c-bg-inverse);
+}
+
+/* dark mode */
+
+body[data-theme-mode='dark'] {
+  input:-webkit-autofill {
+    box-shadow: none;
+    -webkit-box-shadow: 0 0 0 100px #1d2a38 inset;
+  }
+}
+
+/* animation */
+
+.fade {
+  animation: fade 0.25s ease-out;
+}
+
+/* scrollbar */
+
+@media not screen and (-webkit-min-device-pixel-ratio: 2),
+  not screen and (min--moz-device-pixel-ratio: 2),
+  not screen and (-o-min-device-pixel-ratio: 2/1),
+  not screen and (min-device-pixel-ratio: 2),
+  not screen and (min-resolution: 192dpi),
+  not screen and (min-resolution: 2dppx) {
+  /* firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-scrollbar) var(--c-bg);
+    /* thumb, track */
+  }
+
+  /* chrome, edge, and safari */
+
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+
+    // &-track {
+    //   background: var(--c-bg);
+    // }
+
+    &-thumb {
+      border-radius: 0.25rem;
+      background: var(--c-scrollbar);
+
+      &:hover {
+        background: var(--c-scrollbar-hover);
+      }
+    }
+  }
+}

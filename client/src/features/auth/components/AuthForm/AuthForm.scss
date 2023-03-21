@@ -1,0 +1,38 @@
+@use 'styles/mixins';
+
+.auth-form {
+  @include mixins.flex-col-center();
+
+  &__fields-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 22rem;
+    padding: 2rem;
+    gap: 1rem;
+  }
+
+  &__button {
+    width: 12rem;
+  }
+
+  &__loading {
+    padding: 0.25rem;
+  }
+
+  &__mode-toggler {
+    color: var(--c-neutral-a);
+    margin-top: 1.75rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__actions-wrapper {
+    text-align: center;
+  }
+
+  &__submit-button-wrapper {
+    @include mixins.flex-col-center;
+    height: 3.5rem;
+  }
+}

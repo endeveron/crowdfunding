@@ -1,0 +1,18 @@
+@use 'styles/mixins';
+
+.display-campaigns {
+  &__count {
+    padding-left: 0.5rem;
+    color: var(--c-neutral-b);
+  }
+
+  &__empty {
+    color: var(--c-neutral-b);
+  }
+
+  &__campaigns-wrapper {
+    @include mixins.grid-auto(20rem);
+
+    padding-bottom: 1.5rem;
+  }
+}

@@ -1,0 +1,14 @@
+.create-campaign {
+  &__connect {
+    &__message {
+      color: var(--c-neutral-a);
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+  }
+
+  &__form-wrapper--inactive {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}

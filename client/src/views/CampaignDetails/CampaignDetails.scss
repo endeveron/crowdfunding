@@ -1,0 +1,142 @@
+@use 'styles/breakpoints';
+@use 'styles/mixins';
+
+.campaign-details {
+  $self: &;
+
+  padding-bottom: 0.1rem;
+
+  &__content-box {
+    margin-bottom: 1.5rem;
+  }
+
+  &__image {
+    flex-grow: 1;
+    height: 20rem;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      min-width: 100%;
+      border-radius: var(--s-border-radius);
+    }
+  }
+
+  &__stack {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    transform: translateY(-0.125rem);
+
+    .count-box {
+      width: 7rem;
+
+      + .count-box {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  &__description {
+    color: var(--c-neutral-a);
+  }
+
+  &__account-address,
+  &__donators__message {
+    color: var(--c-neutral-c);
+  }
+
+  &__account-address {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 0.75rem;
+  }
+
+  &__donation {
+    @include mixins.flex();
+
+    &-amount {
+      color: var(--c-neutral-a);
+    }
+
+    &-account {
+      margin-left: 0.5rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: var(--c-neutral-c);
+    }
+  }
+
+  &__donate {
+    padding: 1.5rem 1rem;
+    border-radius: var(--s-border-radius);
+    background-color: var(--c-bg-paper);
+
+    &-title {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    &-description {
+      color: var(--c-neutral-b);
+    }
+
+    &-input-wrapper {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    &-message {
+      padding: 1rem;
+      font-size: 0.875rem;
+      border-radius: var(--s-border-radius);
+      background-color: var(--c-bg);
+    }
+
+    &-action-wrapper {
+      margin-top: 1.5rem;
+    }
+
+    &--loading {
+      #{$self}__donate {
+        &-input-wrapper,
+        &-description,
+        &-message {
+          opacity: 0.3;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  &__donation {
+    & + & {
+      margin-top: 0.25rem;
+    }
+  }
+
+  &__loading {
+    @include mixins.flex-col-center;
+    height: 3rem;
+
+    &--secondary {
+      height: auto;
+      opacity: 0.75;
+    }
+  }
+
+  &__layout {
+    @include breakpoints.md {
+      display: flex;
+      gap: 1rem;
+
+      &-item {
+        width: calc(50% - 0.5rem);
+      }
+    }
+  }
+}

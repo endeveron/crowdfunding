@@ -1,0 +1,18 @@
+# dependencies
+node_modules
+
+# production
+client/build
+
+# sensitive data
+/server/nodemon.json
+.env*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode
