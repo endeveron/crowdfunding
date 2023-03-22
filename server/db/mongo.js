@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import { logger } from '../utils/logger.js';
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
-// const uri = 'mongodb://localhost:27017/cf';
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,

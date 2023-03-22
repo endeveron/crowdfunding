@@ -12,10 +12,14 @@ body {
 
 html {
   color-scheme: dark;
+  height: -webkit-fill-available;
 }
 
 body {
   height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
   margin: 0;
   font-size: 16px;
   color: var(--c-text-main);
@@ -122,7 +126,6 @@ body[data-theme-mode='dark'] {
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--c-scrollbar) var(--c-bg);
-    /* thumb, track */
   }
 
   /* chrome, edge, and safari */

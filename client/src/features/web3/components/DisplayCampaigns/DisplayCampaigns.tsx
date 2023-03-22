@@ -2,9 +2,10 @@ import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Loading } from 'components';
-import { CampaignCard, ICampaign } from 'features/web3';
+import { CampaignCard, ICampaign, setCampaign } from 'features/web3';
 
 import './DisplayCampaigns.scss';
+import { useAppDispatch } from 'store';
 
 interface IDisplayCampaignsProps {
   title: string;
@@ -14,14 +15,14 @@ interface IDisplayCampaignsProps {
 
 const DisplayCampaigns = memo(
   ({ title, campaigns, isLoading }: IDisplayCampaignsProps) => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const campaignsLength = campaigns?.length;
 
     const handleCampaignClick = (campaign: ICampaign) => {
-      navigate(`/campaign-details/${campaign.title}`, {
-        state: campaign,
-      });
+      dispatch(setCampaign(campaign));
+      navigate(`/campaign-details/${campaign.title}`);
     };
 
     const campaignsCountEl = !!campaignsLength && (
@@ -42,10 +43,10 @@ const DisplayCampaigns = memo(
 
     return (
       <div className="display-campaigns">
-        <div className="view__title">
+        <h2 className="view__title">
           {title}
           {campaignsCountEl}
-        </div>
+        </h2>
 
         {isLoading ? (
           loadingEl

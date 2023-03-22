@@ -11,5 +11,10 @@ export { Loading } from './Loading/Loading';
 export { Toast } from './toast/Toast/Toast';
 
 export { useToast } from '../common/hooks/useToast';
+export { useSnackbar } from '../common/hooks/useSnackbar';
 
-export type { ToastContent } from './toast/toastTypes';
+export type { IToastContent } from './toast/toastTypes';
+export type {
+  ISnackbarContent,
+  TSnackbarAction,
+} from './snackbar/snackbarTypes';

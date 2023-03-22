@@ -140,7 +140,7 @@ const CreateCampaign = () => {
 
   return (
     <div className="create-campaign view">
-      <div className="create-campaign__title view__title">Start a Campaign</div>
+      <h2 className="create-campaign__title view__title">Start a Campaign</h2>
       {address ? (
         <CreateCampaignForm
           fields={fields}

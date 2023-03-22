@@ -12,30 +12,21 @@
 
   &__image {
     flex-grow: 1;
-    height: 20rem;
+    height: 14rem;
     overflow: hidden;
 
     img {
       object-fit: cover;
       height: 100%;
       min-width: 100%;
-      border-radius: var(--s-border-radius);
+      border-radius: var(--s-border-radius-m);
     }
   }
 
   &__stack {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1rem;
-    transform: translateY(-0.125rem);
+    @include mixins.grid-auto(6rem, 0.5rem);
 
-    .count-box {
-      width: 7rem;
-
-      + .count-box {
-        margin-top: 1rem;
-      }
-    }
+    margin-top: 0.5rem;
   }
 
   &__description {
@@ -82,6 +73,7 @@
     }
 
     &-description {
+      font-size: 0.875rem;
       color: var(--c-neutral-b);
     }
 
@@ -129,8 +121,37 @@
     }
   }
 
-  &__layout {
-    @include breakpoints.md {
+  @include breakpoints.sm {
+    &__content-box--main {
+      display: flex;
+    }
+
+    &__image {
+      height: 20rem;
+    }
+
+    &__stack {
+      grid-template-columns: unset;
+      row-gap: unset;
+
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+      margin-left: 1rem;
+      transform: translateY(-0.125rem);
+
+      .count-box {
+        width: 7rem;
+
+        + .count-box {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  @include breakpoints.md {
+    &__layout {
       display: flex;
       gap: 1rem;
 

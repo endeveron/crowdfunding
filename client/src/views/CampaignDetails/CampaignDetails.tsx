@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import { v4 as uid } from 'uuid';
 
@@ -14,8 +13,8 @@ import {
   Subtitle,
   useToast,
 } from 'components';
-import { daysLeft, ICampaign, setCampaigns, useWeb3 } from 'features/web3';
-import { useAppDispatch } from 'store';
+import { daysLeft, selectCampaign, setCampaigns, useWeb3 } from 'features/web3';
+import { useAppDispatch, useAppSelector } from 'store';
 
 import './CampaignDetails.scss';
 
@@ -33,8 +32,11 @@ const fields: IFormField[] = [
 
 const CampaignDetails = () => {
   const dispatch = useAppDispatch();
-  // Get the campaign data from location.state
-  const { state } = useLocation();
+
+  const campaign = useAppSelector(selectCampaign)!;
+
+  // // Get the campaign data from location.state
+  // const { state } = useLocation();
 
   const { showToast } = useToast();
   const { address, contract, connect, donate, getCampaigns, getDonations } =
@@ -48,7 +50,8 @@ const CampaignDetails = () => {
   const [donateLoading, setDonateLoading] = useState(false);
   const [donatorsLoading, setDonatorsLoading] = useState(false);
 
-  const campaign: ICampaign = state;
+  // const campaign: ICampaign = state;
+
   const remainingDays = daysLeft(campaign.deadline);
   const showDonatorList = !!donatorList.length && donatorsLoading === false;
   const showNoDonatorsMessage =
@@ -162,12 +165,10 @@ const CampaignDetails = () => {
 
   return (
     <div className="campaign-details view">
-      <div className="campaign-details__title view__title">
-        {campaign.title}
-      </div>
+      <h2 className="campaign-details__title view__title">{campaign.title}</h2>
 
       {/* Image + Stack of count boxes */}
-      <div className="campaign-details__content-box row">
+      <div className="campaign-details__content-box campaign-details__content-box--main">
         <div className="campaign-details__image">
           <img src={campaign.image} alt={campaign.title} />
         </div>

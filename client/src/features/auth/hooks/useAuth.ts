@@ -21,7 +21,7 @@ const useAuth = () => {
 
   const logout = () => {
     dispatch(clearStore());
-    navigate('/auth/login', { replace: true });
+    navigate('/', { replace: true });
   };
 
   return { login, logout };

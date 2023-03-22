@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import { Logo, SunIcon } from 'assets';
+import { Logo, SignOutIcon } from 'assets';
 import { SidebarIcon } from 'components';
 import { navLinks } from 'data/navLinks';
 
 import './Sidebar.scss';
+import { useAuth } from 'features/auth';
 
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { logout } = useAuth();
+
   const [active, setActive] = useState('dashboard');
 
   useEffect(() => {
@@ -43,7 +46,11 @@ const Sidebar = () => {
           ))}
         </div>
         <div className="sidebar__content__bottom">
-          <SidebarIcon imgUrl={SunIcon} />
+          <SidebarIcon
+            tooltip="Logout"
+            imgUrl={SignOutIcon}
+            onClick={() => logout()}
+          />
         </div>
       </div>
     </div>

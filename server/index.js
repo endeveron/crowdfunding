@@ -18,6 +18,12 @@ app.use(cors(corsOptions));
 // routes
 app.use('/api/auth', authRoutes);
 
+app.use('/api/ping', (_, res) => {
+  res.send({
+    message: 'Ping OK',
+  });
+});
+
 // 404
 app.use(notFoundController);
 

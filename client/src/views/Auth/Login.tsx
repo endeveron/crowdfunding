@@ -73,7 +73,7 @@ const Login = () => {
           onSubmit={handleSubmit}
         />
         <div className="auth__link-wrapper">
-          <Link to="/auth/signup" state={state}>
+          <Link to="/signup" state={state}>
             Don't have an account ?
           </Link>
         </div>

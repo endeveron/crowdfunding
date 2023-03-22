@@ -6,11 +6,12 @@ import classNames from 'classnames';
 const StyledButton = styled(ButtonMUI)<ButtonProps>({
   borderRadius: '3rem',
   padding: '0.75rem 1.5rem',
-  fontSize: '1rem',
+  fontSize: '0.875rem',
   lineHeight: '1.5rem',
   letterSpacing: '0.03125rem',
   textTransform: 'none',
   boxShadow: 'none',
+  textShadow: '#00000075 0 0 0.25rem',
 
   '&:hover': {
     boxShadow: 'none',

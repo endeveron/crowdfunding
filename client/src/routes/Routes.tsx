@@ -16,7 +16,6 @@ import {
   Login,
   Profile,
   Signup,
-  Logout,
 } from '../views';
 
 const Routes = () => {
@@ -29,7 +28,6 @@ const Routes = () => {
         <Route path="profile" element={<Profile />} />
         <Route path="create-campaign" element={<CreateCampaign />} />
         <Route path="campaign-details/:id" element={<CampaignDetails />} />
-        <Route path="sign-out" element={<Logout />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </>
@@ -37,11 +35,11 @@ const Routes = () => {
 
   const authRoutes = (
     <>
-      <Route path="/auth" element={<Auth />}>
-        <Route path="login" element={<Login />} />
+      <Route path="/" element={<Auth />}>
+        <Route index element={<Login />} />
         <Route path="signup" element={<Signup />} />
       </Route>
-      <Route path="*" element={<Navigate to="/auth/login" />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </>
   );
 

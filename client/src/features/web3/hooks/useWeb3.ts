@@ -49,12 +49,6 @@ const useWeb3 = () => {
         'getCampaigns'
       );
 
-      // const parseDonations = (donations: any[]): number[] => {
-      //   return donations.map(
-      //     (donation) => +ethers.utils.formatEther(donation.toString())
-      //   );
-      // };
-
       const parsedCampaings = campaigns.map((campaign, i) => {
         return {
           owner: campaign.owner,
@@ -68,8 +62,6 @@ const useWeb3 = () => {
             campaign.amountCollected.toString()
           ),
           image: campaign.image,
-          // donations: parseDonations(campaign.donations),
-          // donators: campaign.donators,
           pId: i,
         };
       });

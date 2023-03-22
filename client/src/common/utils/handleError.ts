@@ -1,6 +1,6 @@
 import { Dispatch } from 'react';
 
-import { ToastContent } from 'components';
+import { IToastContent } from 'components';
 import { openToast } from 'store/ui';
 import { ResponseError } from 'common/types/http';
 
@@ -8,7 +8,7 @@ export const handleHttpError =
   (error: ResponseError) =>
   (
     dispatch: Dispatch<{
-      payload: ToastContent;
+      payload: IToastContent;
       type: string;
     }>
   ) => {

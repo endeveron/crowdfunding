@@ -4,16 +4,16 @@ import Snackbar, { SnackbarProps } from '@mui/material/Snackbar';
 
 import { useAppDispatch } from 'store';
 import { closeToast } from 'store/ui';
-import { ToastContent } from '../toastTypes';
+import { IToastContent } from '../toastTypes';
 
 import './Toast.scss';
 
-interface ToastProps {
-  content: ToastContent;
+interface IToastProps {
+  content: IToastContent;
   isOpen: boolean;
 }
 
-const Toast = ({ content, isOpen }: ToastProps) => {
+const Toast = ({ content, isOpen }: IToastProps) => {
   const dispatch = useAppDispatch();
 
   const [open, setOpen] = useState(false);

@@ -1,0 +1,22 @@
+.snackbar {
+  $self: &;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--c-text-inverse);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.03125rem;
+    line-height: 1.25;
+    padding: 0.5rem;
+    border-radius: 3rem;
+    background-color: var(--c-bg-inverse);
+  }
+
+  &__message {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

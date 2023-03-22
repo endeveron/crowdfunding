@@ -24,9 +24,9 @@ const CampaignCard = ({
 
   return (
     <div onClick={onClick} className="campaign-card">
-      <img src={image} alt={title} className="campaign-card__image" />
-      <div className="campaign-card__content">
-        <div className="campaign-card__stack">
+      <div className="campaign-card__image-wrapper">
+        <img src={image} alt={title} className="campaign-card__image" />
+        <div className="campaign-card__category campaign-card__stack">
           <img
             src={TagTypeIcon}
             alt="tag"
@@ -34,7 +34,9 @@ const CampaignCard = ({
           />
           <div className="campaign-card__category-title">{category}</div>
         </div>
+      </div>
 
+      <div className="campaign-card__content">
         <h3 className="campaign-card__title">{title}</h3>
         <p className="campaign-card__description">{description}</p>
 
@@ -46,12 +48,12 @@ const CampaignCard = ({
           <div className="campaign-card__stack-item main">
             <div className="campaign-card__stack-value">{amountCollected}</div>
             <div className="campaign-card__stack-description">
-              Raised of {target}
+              raised of {target}
             </div>
           </div>
           <div className="campaign-card__stack-item">
             <div className="campaign-card__stack-value">{remainingDays}</div>
-            <div className="campaign-card__stack-description">Days Left</div>
+            <div className="campaign-card__stack-description">days left</div>
           </div>
         </div>
       </div>

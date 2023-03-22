@@ -1,7 +1,6 @@
 import {
   CreateCampaignIcon,
   DashboardIcon,
-  SignOutIcon,
   PaymentIcon,
   ProfileIcon,
   WithdrawIcon,
@@ -12,6 +11,11 @@ export const navLinks = [
     name: 'dashboard',
     imgUrl: DashboardIcon,
     link: '/',
+  },
+  {
+    name: 'profile',
+    imgUrl: ProfileIcon,
+    link: '/profile',
   },
   {
     name: 'create-campaign',
@@ -29,15 +33,5 @@ export const navLinks = [
     imgUrl: WithdrawIcon,
     link: '/',
     disabled: true,
-  },
-  {
-    name: 'profile',
-    imgUrl: ProfileIcon,
-    link: '/profile',
-  },
-  {
-    name: 'signout',
-    imgUrl: SignOutIcon,
-    link: '/sign-out',
   },
 ];

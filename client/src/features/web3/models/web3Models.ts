@@ -37,4 +37,5 @@ export interface ICampaign
 // Redux slice
 export interface IWeb3Slice {
   campaigns: ICampaign[] | null;
+  campaign: ICampaign | null;
 }

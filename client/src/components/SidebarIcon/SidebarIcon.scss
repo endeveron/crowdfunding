@@ -1,6 +1,7 @@
 .sidebar-icon {
   $self: &;
 
+  position: relative;
   display: flex;
   width: 3rem;
   height: 3rem;
@@ -8,6 +9,23 @@
 
   & + & {
     margin-top: var(--s-gap-s);
+  }
+
+  &::after {
+    display: none;
+  }
+
+  &:hover::after {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    left: 3rem;
+    font-size: 0.875rem;
+    content: attr(data-tooltip);
+    padding: 0.5rem;
+    z-index: 1;
+    border-radius: var(--s-border-radius);
+    background-color: var(--c-bg);
   }
 
   &--active {

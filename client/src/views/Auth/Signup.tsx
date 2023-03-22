@@ -86,7 +86,7 @@ const Signup = () => {
           onSubmit={handleSubmit}
         />
         <div className="auth__link-wrapper">
-          <Link to="/auth/login" state={state}>
+          <Link to="/" state={state}>
             Already registered ?
           </Link>
         </div>

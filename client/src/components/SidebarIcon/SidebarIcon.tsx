@@ -5,6 +5,7 @@ import './SidebarIcon.scss';
 interface SidebarIconProps {
   imgUrl: string;
   className?: string;
+  tooltip?: string;
   name?: string;
   active?: boolean;
   disabled?: boolean;
@@ -17,6 +18,7 @@ const SidebarIcon = ({
   active,
   className,
   disabled,
+  tooltip,
   onClick,
 }: SidebarIconProps) => {
   return (
@@ -26,6 +28,7 @@ const SidebarIcon = ({
         'sidebar-icon--disabled': disabled,
       })}
       onClick={() => onClick && onClick()}
+      data-tooltip={tooltip}
     >
       <img src={imgUrl} alt={name || 'sidebar icon'} />
     </div>
