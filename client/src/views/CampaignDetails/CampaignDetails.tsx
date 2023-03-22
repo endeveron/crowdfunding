@@ -33,10 +33,15 @@ const fields: IFormField[] = [
 const CampaignDetails = () => {
   const dispatch = useAppDispatch();
 
-  const campaign = useAppSelector(selectCampaign)!;
+  let campaign = useAppSelector(selectCampaign)!;
 
-  // // Get the campaign data from location.state
-  // const { state } = useLocation();
+  if (!campaign) {
+    // Try to get data from the storage
+    const storageData = sessionStorage.getItem('web3.campaign');
+    if (storageData) {
+      campaign = JSON.parse(storageData);
+    }
+  }
 
   const { showToast } = useToast();
   const { address, contract, connect, donate, getCampaigns, getDonations } =
@@ -49,8 +54,6 @@ const CampaignDetails = () => {
   >([]);
   const [donateLoading, setDonateLoading] = useState(false);
   const [donatorsLoading, setDonatorsLoading] = useState(false);
-
-  // const campaign: ICampaign = state;
 
   const remainingDays = daysLeft(campaign.deadline);
   const showDonatorList = !!donatorList.length && donatorsLoading === false;
@@ -72,6 +75,11 @@ const CampaignDetails = () => {
       setDonatorsLoading(false);
     }
   };
+
+  // Save campaign data
+  useEffect(() => {
+    sessionStorage.setItem('web3.campaign', JSON.stringify(campaign));
+  }, [campaign]);
 
   // Initialize donators
   useEffect(() => {

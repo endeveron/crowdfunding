@@ -4,12 +4,12 @@
 $scrollbar-width: 0.25rem;
 $sidebar-width: 4.5rem;
 $container-min-width: 20rem; // 320px
-$container-max-width: 87.5rem; // 1400px
+// $container-max-width: 87.5rem; // 1400px
 
 .layout {
   @include mixins.flex();
-  margin: 0 auto;
-  max-width: $container-max-width;
+  // margin: 0 auto;
+  // max-width: $container-max-width;
 
   .main {
     width: calc(100vw - $sidebar-width - $scrollbar-width);

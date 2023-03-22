@@ -22,7 +22,7 @@ const DisplayCampaigns = memo(
 
     const handleCampaignClick = (campaign: ICampaign) => {
       dispatch(setCampaign(campaign));
-      navigate(`/campaign-details/${campaign.title}`);
+      navigate('/campaign-details');
     };
 
     const campaignsCountEl = !!campaignsLength && (

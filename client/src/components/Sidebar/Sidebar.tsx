@@ -47,6 +47,7 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__content__bottom">
           <SidebarIcon
+            className="tooltip"
             tooltip="Logout"
             imgUrl={SignOutIcon}
             onClick={() => logout()}

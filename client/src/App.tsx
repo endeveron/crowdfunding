@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { useServiceWorker } from 'common/hooks/useServiceWorker';
 import { useSnackbar, useToast } from 'components';
 import { MuiThemeProvider } from 'features/muiTheme';
@@ -16,6 +18,10 @@ const App = () => {
     dispatch(setSnackbarAction('updateApp'))
   );
   useServiceWorker();
+
+  useEffect(() => {
+    console.log('app version 85');
+  }, []);
 
   return (
     <MuiThemeProvider>

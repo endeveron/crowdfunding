@@ -1,4 +1,3 @@
-import { TagTypeIcon } from 'assets';
 import { ICampaign } from 'features/web3';
 import { daysLeft } from 'features/web3';
 
@@ -24,16 +23,9 @@ const CampaignCard = ({
 
   return (
     <div onClick={onClick} className="campaign-card">
-      <div className="campaign-card__image-wrapper">
-        <img src={image} alt={title} className="campaign-card__image" />
-        <div className="campaign-card__category campaign-card__stack">
-          <img
-            src={TagTypeIcon}
-            alt="tag"
-            className="campaign-card__category-icon"
-          />
-          <div className="campaign-card__category-title">{category}</div>
-        </div>
+      <img src={image} alt={title} className="campaign-card__image" />
+      <div className="campaign-card__category-container">
+        <div className="campaign-card__category">{category}</div>
       </div>
 
       <div className="campaign-card__content">

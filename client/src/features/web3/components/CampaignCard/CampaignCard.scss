@@ -6,27 +6,25 @@
   border-radius: var(--s-border-radius-m);
   background-color: var(--c-bg-paper);
 
-  &__image-wrapper {
+  &__category-container {
     position: relative;
   }
 
   &__category {
-    opacity: 0.85;
+    display: flex;
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
+    left: 0;
+    letter-spacing: 0.03125rem;
+    font-size: 0.875rem;
+    color: white;
     padding: 0.75rem 1.25rem;
-    border-top-right-radius: 1rem;
-    background-color: var(--c-bg);
-
-    &-icon {
-      transform: translateY(-0.1rem);
-    }
-
-    &-title {
-      margin-left: 0.5rem;
-      letter-spacing: 0.03125rem;
-      opacity: 0.6;
-    }
+    background-color: rgba(23, 33, 39, 0.6);
+    background: linear-gradient(
+      90deg,
+      rgba(23, 32, 39, 0.7) 0%,
+      rgba(23, 32, 39, 0.35) 100%
+    );
   }
 
   &__image {
