@@ -26,7 +26,7 @@
   &__stack {
     @include mixins.grid-auto(6rem, 0.5rem);
 
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
 
   &__description {
@@ -66,6 +66,10 @@
     border-radius: var(--s-border-radius);
     background-color: var(--c-bg-paper);
 
+    &-content {
+      padding-bottom: 1.5rem;
+    }
+
     &-title {
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
@@ -87,10 +91,6 @@
       font-size: 0.875rem;
       border-radius: var(--s-border-radius);
       background-color: var(--c-bg);
-    }
-
-    &-action-wrapper {
-      margin-top: 1.5rem;
     }
 
     &--loading {
@@ -150,14 +150,14 @@
     }
   }
 
-  // @include breakpoints.md {
-  //   &__layout {
-  //     display: flex;
-  //     gap: 1rem;
+  @include breakpoints.md {
+    &__layout {
+      display: flex;
+      gap: 1rem;
 
-  //     // &-item {
-  //     //   width: calc(50% - 0.5rem);
-  //     // }
-  //   }
-  // }
+      &-item {
+        width: calc(50% - 0.5rem);
+      }
+    }
+  }
 }

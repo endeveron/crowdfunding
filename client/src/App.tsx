@@ -20,7 +20,7 @@ const App = () => {
   useServiceWorker();
 
   useEffect(() => {
-    console.log('app version 85');
+    console.log('app version 87');
   }, []);
 
   return (

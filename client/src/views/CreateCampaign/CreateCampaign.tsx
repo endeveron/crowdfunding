@@ -125,12 +125,12 @@ const CreateCampaign = () => {
 
   const connectEl = (
     <div className="create-campaign__connect">
-      <div className="create-campaign__connect__message">
+      <div className="create-campaign__connect-message">
         Please connect your wallet to create a campaign.
       </div>
       <Button
         variant="contained"
-        className="create-campaign__connect__button"
+        className="create-campaign__connect-button"
         onClick={() => connect()}
       >
         Connect Wallet

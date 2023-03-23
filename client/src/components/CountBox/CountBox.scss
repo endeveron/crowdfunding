@@ -1,3 +1,4 @@
+@use 'styles/breakpoints';
 @use 'styles/mixins';
 
 .count-box {
@@ -8,15 +9,12 @@
 
   &__value,
   &__title {
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
+    padding: 0.75rem 0.25rem;
   }
 
   &__value {
     font-size: 1.25rem;
     font-weight: 600;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
   }
 
   &__title {
@@ -24,9 +22,14 @@
     color: var(--c-neutral-a);
     font-size: 0.875rem;
     text-align: center;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
     border-radius: var(--s-border-radius-s);
     background-color: var(--c-bg-b);
+  }
+
+  @include breakpoints.sm {
+    &__value {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
   }
 }

@@ -25,23 +25,14 @@ const Home = () => {
     setSearchQuery(query);
   };
 
-  const filteredCampaigns: ICampaign[] = useMemo(() => {
-    if (!campaignsFromStore) return [];
-    if (searchQuery === '') return campaignsFromStore;
-    return (
-      campaignsFromStore?.filter((campaign) =>
-        campaign.title.toLowerCase().includes(searchQuery.toLowerCase())
-      ) || []
-    );
-  }, [campaignsFromStore, searchQuery]);
-
   const fetchCampaigns = async () => {
     if (campaignsFromStore?.length) return;
 
     try {
       setIsLoading(true);
       const fetchedCampaigns = await getCampaigns();
-      dispatch(setCampaigns(fetchedCampaigns));
+      // Set entities to redux state.web3.campaigns
+      dispatch(setCampaigns(fetchedCampaigns || []));
     } catch (err) {
       console.error(err);
     } finally {
@@ -54,6 +45,16 @@ const Home = () => {
       fetchCampaigns();
     }
   }, [contract]); // eslint-disable-line
+
+  const filteredCampaigns: ICampaign[] = useMemo(() => {
+    if (!campaignsFromStore) return [];
+    if (searchQuery === '') return campaignsFromStore;
+    return (
+      campaignsFromStore?.filter((campaign) =>
+        campaign.title.toLowerCase().includes(searchQuery.toLowerCase())
+      ) || []
+    );
+  }, [campaignsFromStore, searchQuery]);
 
   return (
     <div className="home view">

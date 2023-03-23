@@ -49,6 +49,12 @@
   @extend %centered;
 }
 
+@mixin flex-row-distributed {
+  @extend %flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @mixin flex-col-distributed {
   @extend %flex-col;
   align-items: center;

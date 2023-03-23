@@ -1,23 +1,31 @@
+@use 'styles/breakpoints';
 @use 'styles/mixins';
 
 .sidebar {
-  @include mixins.flex-col-distributed();
+  &,
+  &__main {
+    @include mixins.flex-row-distributed();
+  }
 
-  height: 100vh;
-  padding: 1.5rem 0 1.5rem 0.5rem;
-  border-radius: var(--s-border-radius);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 0.5rem 1rem 0.75rem;
+  background-color: var(--c-bg-paper);
 
-  &__content {
-    @include mixins.flex-col-distributed();
+  @include breakpoints.sm {
+    position: sticky;
+    top: 0;
+    right: unset;
+    bottom: unset;
+    height: 100vh;
+    padding-left: 0.5rem;
 
-    flex: 1;
-    margin-top: 1rem;
-    padding: var(--s-gap-s);
-    border-radius: var(--s-border-radius-m);
-    background-color: var(--c-bg-paper);
-
+    &,
     &__main {
-      @include mixins.flex-col-distributed();
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }

@@ -6,8 +6,10 @@
     color: var(--c-neutral-b);
   }
 
-  &__empty {
+  &__message {
     color: var(--c-neutral-b);
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 
   &__campaigns-wrapper {

@@ -25,6 +25,8 @@ export {
   WithdrawIcon,
 };
 
+export { ReactComponent as AddIcon } from './icons/add_24.svg';
+export { ReactComponent as ConnectIcon } from './icons/link_24.svg';
 export { ReactComponent as Logo } from './icons/logo_48.svg';
 export { ReactComponent as VisibilityIcon } from './icons/visibility_24.svg';
 export { ReactComponent as VisibilityOffIcon } from './icons/visibility_off_24.svg';

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Logo, SignOutIcon } from 'assets';
+import { SignOutIcon } from 'assets';
 import { SidebarIcon } from 'components';
 import { navLinks } from 'data/navLinks';
+import { useAuth } from 'features/auth';
 
 import './Sidebar.scss';
-import { useAuth } from 'features/auth';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -25,34 +25,28 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <Link to="/">
-        <Logo />
-      </Link>
-
-      <div className="sidebar__content">
-        <div className="sidebar__content__main">
-          {navLinks.map((item) => (
-            <SidebarIcon
-              key={item.name}
-              {...item}
-              active={active === item.name}
-              onClick={() => {
-                if (!item.disabled) {
-                  setActive(item.name);
-                  navigate(item.link);
-                }
-              }}
-            />
-          ))}
-        </div>
-        <div className="sidebar__content__bottom">
+      <div className="sidebar__main">
+        {navLinks.map((item) => (
           <SidebarIcon
-            className="tooltip"
-            tooltip="Logout"
-            imgUrl={SignOutIcon}
-            onClick={() => logout()}
+            key={item.name}
+            {...item}
+            active={active === item.name}
+            onClick={() => {
+              if (!item.disabled) {
+                setActive(item.name);
+                navigate(item.link);
+              }
+            }}
           />
-        </div>
+        ))}
+      </div>
+      <div className="sidebar__footer">
+        <SidebarIcon
+          className="tooltip"
+          tooltip="Logout"
+          imgUrl={SignOutIcon}
+          onClick={() => logout()}
+        />
       </div>
     </div>
   );

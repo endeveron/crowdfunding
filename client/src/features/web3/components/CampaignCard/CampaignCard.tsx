@@ -37,7 +37,7 @@ const CampaignCard = ({
         </div>
 
         <div className="campaign-card__stack">
-          <div className="campaign-card__stack-item main">
+          <div className="campaign-card__stack-item campaign-card__stack-item--main">
             <div className="campaign-card__stack-value">{amountCollected}</div>
             <div className="campaign-card__stack-description">
               raised of {target}

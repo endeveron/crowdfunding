@@ -22,8 +22,8 @@
     background-color: rgba(23, 33, 39, 0.6);
     background: linear-gradient(
       90deg,
-      rgba(23, 32, 39, 0.7) 0%,
-      rgba(23, 32, 39, 0.35) 100%
+      rgba(23, 32, 39, 0.5) 0%,
+      rgba(23, 32, 39, 0.3) 100%
     );
   }
 
@@ -77,7 +77,7 @@
         width: fit-content;
       }
 
-      &.main {
+      &--main {
         flex: 1;
       }
     }
@@ -85,13 +85,10 @@
     &-value {
       font-size: 1.125rem;
       font-weight: 600;
-      // opacity: 0.85;
     }
 
     &-description {
       margin-left: 0.375rem;
-      // padding-top: 0.5rem;
-      // padding-bottom: 0.5rem;
     }
   }
 

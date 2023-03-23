@@ -1,15 +1,15 @@
+@use 'styles/breakpoints';
+
 .navbar {
   position: sticky;
   top: 0;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding: 1rem 0;
   background: var(--c-bg);
   z-index: 1;
 
   + .view__title,
   + div .view__title {
-    padding-top: 0.5rem;
-    padding-left: 0.125rem;
+    padding-top: 0.75rem;
   }
 
   &__content {
@@ -22,11 +22,62 @@
 
   &__search {
     min-width: 10rem;
-    max-width: 20rem;
   }
 
   &__input {
     width: 100%;
     background-color: transparent;
+  }
+
+  &__action {
+    &.MuiButton-contained {
+      padding-right: 0.75rem;
+      padding-left: 0.75rem;
+    }
+
+    &-icon {
+      display: none;
+    }
+
+    &-title {
+      margin: 0 0.5rem;
+
+      &--extra {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: 400px) {
+    &__action-icon {
+      display: inline-block;
+      & > * {
+        fill: #ffffff;
+      }
+    }
+  }
+
+  @include breakpoints.sm {
+    &__search {
+      width: 18rem;
+    }
+
+    &__action {
+      &.MuiButton-contained {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      &-title--extra {
+        display: inline-block;
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include breakpoints.md {
+    &__search {
+      width: 22rem;
+    }
   }
 }

@@ -1,3 +1,5 @@
+@use 'styles/breakpoints';
+
 .sidebar-icon {
   $self: &;
 
@@ -8,7 +10,7 @@
   border-radius: var(--s-border-radius);
 
   & + & {
-    margin-top: var(--s-gap-s);
+    margin-left: var(--s-gap-s);
   }
 
   &.tooltip {
@@ -64,6 +66,13 @@
 
     & * {
       fill: var(--c-text-main);
+    }
+  }
+
+  @include breakpoints.sm {
+    & + & {
+      margin-left: 0;
+      margin-top: var(--s-gap-s);
     }
   }
 }

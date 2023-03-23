@@ -36,7 +36,7 @@ const DisplayCampaigns = memo(
     );
 
     const noCampaignsMessage = campaignsLength === 0 && (
-      <div className="display-campaigns__empty">
+      <div className="display-campaigns__message">
         There are no campaigns to display.
       </div>
     );

@@ -35,14 +35,6 @@ const CampaignDetails = () => {
 
   let campaign = useAppSelector(selectCampaign)!;
 
-  if (!campaign) {
-    // Try to get data from the storage
-    const storageData = sessionStorage.getItem('web3.campaign');
-    if (storageData) {
-      campaign = JSON.parse(storageData);
-    }
-  }
-
   const { showToast } = useToast();
   const { address, contract, connect, donate, getCampaigns, getDonations } =
     useWeb3();
@@ -59,32 +51,6 @@ const CampaignDetails = () => {
   const showDonatorList = !!donatorList.length && donatorsLoading === false;
   const showNoDonatorsMessage =
     donatorList.length === 0 && donatorsLoading === false;
-
-  const fetchDonators = async () => {
-    try {
-      setDonatorsLoading(true);
-      const data = await getDonations(campaign.pId);
-
-      if (data) {
-        setDonatorList(data);
-      }
-    } catch (error) {
-      console.error('fetchDonators', error);
-      showToast('Could not fetch the list of donators.');
-    } finally {
-      setDonatorsLoading(false);
-    }
-  };
-
-  // Save campaign data
-  useEffect(() => {
-    sessionStorage.setItem('web3.campaign', JSON.stringify(campaign));
-  }, [campaign]);
-
-  // Initialize donators
-  useEffect(() => {
-    if (contract) fetchDonators();
-  }, [address, contract]); // eslint-disable-line
 
   const handleDonate = async () => {
     if (!contract || !address) {
@@ -126,6 +92,31 @@ const CampaignDetails = () => {
       setDonateLoading(false);
     }
   };
+
+  const fetchDonators = async () => {
+    try {
+      setDonatorsLoading(true);
+      const data = await getDonations(campaign.pId);
+
+      if (data) {
+        setDonatorList(data);
+      }
+    } catch (error) {
+      console.error('fetchDonators', error);
+      showToast('Could not fetch the list of donators.');
+    } finally {
+      setDonatorsLoading(false);
+    }
+  };
+
+  // Initialize donators
+  useEffect(() => {
+    if (contract) fetchDonators();
+  }, [address, contract]); // eslint-disable-line
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const countBoxData = [
     {
@@ -197,60 +188,62 @@ const CampaignDetails = () => {
                 'campaign-details__donate--loading': donateLoading,
               })}
             >
-              <p className="campaign-details__donate-description campaign-details__description">
-                Pledge without reward.
-              </p>
+              {address ? (
+                <div className="campaign-details__donate-content">
+                  <p className="campaign-details__donate-description campaign-details__description">
+                    Pledge without reward.
+                  </p>
 
-              <div className="campaign-details__donate-input-wrapper">
-                {fields.map((data) => (
-                  <FormField
-                    variant="outlined"
-                    label={data.label}
-                    name={data.name}
-                    type={data.type}
-                    step={data.step}
-                    maxLength={data.maxLength}
-                    minLength={data.minLength}
-                    inputData={inputValues[data.name]}
-                    onChange={handleInputChange}
-                    fullWidth={true}
-                    autoFocus={data.autoFocus}
-                    required={data.required ? data.required : false}
-                    key={data.name}
-                    multiline={data.multiline}
-                    placeholder={data.placeholder}
-                  />
-                ))}
-              </div>
+                  <div className="campaign-details__donate-input-wrapper">
+                    {fields.map((data) => (
+                      <FormField
+                        variant="outlined"
+                        label={data.label}
+                        name={data.name}
+                        type={data.type}
+                        step={data.step}
+                        maxLength={data.maxLength}
+                        minLength={data.minLength}
+                        inputData={inputValues[data.name]}
+                        onChange={handleInputChange}
+                        fullWidth={true}
+                        autoFocus={data.autoFocus}
+                        required={data.required ? data.required : false}
+                        key={data.name}
+                        multiline={data.multiline}
+                        placeholder={data.placeholder}
+                      />
+                    ))}
+                  </div>
 
-              <div className="campaign-details__donate-message">
-                <p className="campaign-details__donate-title">
-                  Back it because you believe in it.
-                </p>
-                <p className="campaign-details__donate-description">
-                  Support the project for no reward, just because it speaks to
-                  you.
-                </p>
-              </div>
+                  <div className="campaign-details__donate-message">
+                    <p className="campaign-details__donate-title">
+                      Back it because you believe in it.
+                    </p>
+                    <p className="campaign-details__donate-description">
+                      Support the project for no reward, just because it speaks
+                      to you.
+                    </p>
+                  </div>
+                </div>
+              ) : null}
 
-              <div className="campaign-details__donate-action-wrapper">
-                {donateLoading ? (
-                  donateLoadingEl
-                ) : address ? (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    disabled={donateLoading}
-                    fullWidth={true}
-                    onClick={handleDonate}
-                    className="campaign-details__donate__action-button fade"
-                  >
-                    Fund Campaign
-                  </Button>
-                ) : (
-                  connectButton
-                )}
-              </div>
+              {donateLoading ? (
+                donateLoadingEl
+              ) : address ? (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={donateLoading}
+                  fullWidth={true}
+                  onClick={handleDonate}
+                  className="campaign-details__donate__action-button fade"
+                >
+                  Fund Campaign
+                </Button>
+              ) : (
+                connectButton
+              )}
             </div>
           </div>
         </div>

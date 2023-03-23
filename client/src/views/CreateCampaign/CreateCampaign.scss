@@ -1,9 +1,12 @@
 .create-campaign {
   &__connect {
-    &__message {
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    &-message {
       color: var(--c-neutral-a);
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
     }
   }
 
