@@ -1,4 +1,4 @@
-import { ISnackbarContent } from 'components';
+import { ISnackbarContent, Snackbar as SnackbarEl } from 'components';
 import { useAppDispatch, useAppSelector } from 'store/store';
 import {
   closeSnackbar,
@@ -6,8 +6,6 @@ import {
   selectSnackbarContent,
   selectSnackbarIsOpen,
 } from 'store/ui';
-
-import { Snackbar as SnackbarEl } from '../../components/snackbar/Snackbar/Snackbar';
 
 export const useSnackbar = (actionCallback?: () => void) => {
   const dispatch = useAppDispatch();

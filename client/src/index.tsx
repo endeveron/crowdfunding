@@ -3,6 +3,7 @@ import { ThirdwebProvider } from '@thirdweb-dev/react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { persistor, store } from 'store';
 
 import App from 'App';
@@ -18,3 +19,5 @@ root.render(
     </PersistGate>
   </ReduxProvider>
 );
+
+serviceWorkerRegistration.register();

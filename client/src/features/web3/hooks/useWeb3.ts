@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { utils } from 'ethers';
 
 import {
   useAddress,
@@ -31,7 +31,7 @@ const useWeb3 = () => {
         data.title,
         data.category,
         data.description,
-        ethers.utils.parseUnits(data.target.toString(), 18),
+        utils.parseUnits(data.target.toString(), 18),
         new Date(data.deadline).getTime(),
         data.image,
       ]);
@@ -56,9 +56,9 @@ const useWeb3 = () => {
           category: campaign.category,
           title: campaign.title,
           description: campaign.description,
-          target: +ethers.utils.formatEther(campaign.target),
+          target: +utils.formatEther(campaign.target),
           deadline: +campaign.deadline,
-          amountCollected: +ethers.utils.formatEther(
+          amountCollected: +utils.formatEther(
             campaign.amountCollected.toString()
           ),
           image: campaign.image,
@@ -83,7 +83,7 @@ const useWeb3 = () => {
     let data = null;
     try {
       data = await contract.call('donateCampaign', pId, {
-        value: ethers.utils.parseEther(amount.toString()),
+        value: utils.parseEther(amount.toString()),
       });
     } catch (error) {
       console.error('useWeb3 donate', error);
@@ -108,7 +108,7 @@ const useWeb3 = () => {
       for (let i = 0; i < numberOfDonations; i++) {
         parsedDonations.push({
           donator: donations[0][i],
-          donation: ethers.utils.formatEther(donations[1][i].toString()),
+          donation: utils.formatEther(donations[1][i].toString()),
         });
       }
 

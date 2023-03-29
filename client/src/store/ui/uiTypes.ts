@@ -18,6 +18,6 @@ export type ThemeMode = 'light' | 'dark';
 export interface UiState {
   themeMode: ThemeMode;
   toast: IToast;
-  snackbar: ISnackbar;
   sidebar: IsOpen;
+  snackbar: ISnackbar;
 }

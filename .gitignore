@@ -5,7 +5,7 @@ node_modules
 client/build
 
 # sensitive data
-/server/nodemon.json
+nodemon.json
 .env*
 
 # Logs
@@ -16,6 +16,3 @@ pnpm-debug.log*
 
 # Editor directories and files
 .vscode
-
-# Rest
-*.lnk
